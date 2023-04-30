@@ -17,7 +17,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 public class UserController {
     private final UserManagerService service;
 
-    public UserController(@Autowired(required = true) UserManagerService service) {
+    public UserController(@Autowired UserManagerService service) {
         this.service = service;
     }
 

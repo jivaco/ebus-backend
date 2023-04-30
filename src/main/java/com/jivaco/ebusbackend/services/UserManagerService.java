@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 public class UserManagerService implements UserDetailsService {
     private final UserRepo repo;
     private final PasswordEncoder passwordEncoder;
-    private final Logger umsLogger = LoggerFactory.getLogger(UserManagerService.class);
 
     public UserManagerService(@Autowired UserRepo repo) {
         this.repo = repo;
