@@ -4,8 +4,6 @@ import com.jivaco.ebusbackend.models.User;
 import com.jivaco.ebusbackend.repositories.UserRepo;
 import com.jivaco.ebusbackend.schemas.users.UserDTO;
 import com.jivaco.ebusbackend.schemas.users.UserReadDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
