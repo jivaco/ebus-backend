@@ -38,6 +38,15 @@ public class UserManagerService implements UserDetailsService {
         );
     }
 
+    public String verifyUserCredentials(String email, String password) {
+        User user = this.repo.findUserByEmail(email);
+        if (user != null) {
+            boolean samePassword = passwordEncoder.matches(password, user.getPassword());
+            return samePassword ? "success" : "fail";
+        }
+        return "fail";
+    }
+
     @Override
     public UserDetails loadUserByUsername(String emailID) throws UsernameNotFoundException {
         return this.repo.findUserByEmail(emailID);

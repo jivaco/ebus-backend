@@ -1,5 +1,7 @@
 package com.jivaco.ebusbackend.controllers;
 
+import com.jivaco.ebusbackend.schemas.users.AuthenticationResponse;
+import com.jivaco.ebusbackend.schemas.users.LoginUser;
 import com.jivaco.ebusbackend.schemas.users.UserDTO;
 import com.jivaco.ebusbackend.schemas.users.UserReadDTO;
 import com.jivaco.ebusbackend.services.UserManagerService;
@@ -24,6 +26,12 @@ public class UserController {
     @PostMapping(path = "/signup")
     public UserReadDTO saveUser(@RequestBody UserDTO userDTO) {
         return service.confirmAndSaveUser(userDTO);
+    }
+
+    @PostMapping(path = "/authenticate")
+    public AuthenticationResponse authenticate(@RequestBody LoginUser loginUser) {
+        String status = service.verifyUserCredentials(loginUser.username(), loginUser.password());
+        return new AuthenticationResponse(status);
     }
 }
 
